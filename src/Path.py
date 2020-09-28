@@ -1,10 +1,13 @@
 import math
 
-from src.Settings import *
-from src.action.PawnMove import *
+from src.settings import *
+from src.action.pawn_move import *
 
 
 class Path:
+    """
+        Aquí definiremos los algoritmos utilizados en las funciones
+    """
 
     def __init__(self, moves):
         self.moves = moves
@@ -20,6 +23,8 @@ class Path:
 
     def firstMove(self):
         return self.moves[0]
+
+    # TODO = Función predeterminada en Python, enfoca al objeto de manera string
 
     def __str__(self):
         return "[%s] -> %s" % (str(self.startCoord()), " -> ".join(
@@ -134,6 +139,10 @@ class Path:
         búsqueda no informada utilizado para recorrer todos los nodos de un
         grafo o árbol (teoría de grafos) de manera ordenada, pero no uniforme.
         """
+
+        global TRACE
+        TRACE["Path.DepthFirstSearch"] += 1
+
         if node not in visited:
             print(node)
             visited.add(node)
@@ -149,3 +158,5 @@ class Path:
                         yield path + [next]
                     else:
                         stack.append((next, path + [next]))
+
+        return None

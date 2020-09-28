@@ -1,8 +1,8 @@
-from src.GridCoordinates import *
-from src.interface.Square import *
-from src.interface.Pawn import *
-from src.Path import *
-from src.exception.PlayerPathObstructedException import *
+from src.grid_coordinates import *
+from src.utils.square import *
+from src.utils.pawn import *
+from src.path import *
+from utils.player_exception import *
 
 
 class Board(IDrawable):

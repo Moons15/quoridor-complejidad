@@ -1,8 +1,8 @@
-from src.Settings import *
-from src.Game import *
-from src.player.Human import *
-from src.player.RandomBot import *
-from src.player.BuildAndRunBot import *
+from src.settings import *
+from src.game import *
+from src.player.human import *
+from src.player.random_bot import *
+from src.player.build_runbot import *
 
 PARAMETERS_ERROR_RETURN_CODE = 1
 
@@ -13,9 +13,9 @@ def readArguments():
     cols = 9
     rows = 9
     totalFenceCount = 20
-    squareSize = 32
+    squareSize = 70
 
-    playersConsts = ['Me:Human', 'IA:BuildAndRunBot']
+    playersConsts = ['Alumno-UPC:Human', 'Bot-IA:BuildAndRunBot']
 
     for playerData in playersConsts:
         playerName, playerType = playerData.split(":")

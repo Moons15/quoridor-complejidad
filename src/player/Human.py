@@ -1,7 +1,7 @@
-from src.Settings import INTERFACE
+from src.settings import INTERFACE
 from src.player.IPlayer import *
 from src.action.IAction import *
-from src.action.Quit import *
+from src.action.quit import *
 
 
 class Human(IPlayer):
@@ -13,6 +13,7 @@ class Human(IPlayer):
             key = board.window.getKey()
             if key == ' ' or key == 'space':
                 validPawnMoves = board.storedValidPawnMoves[self.pawn.coord]
+                print(self.pawn.coord)
                 board.displayValidPawnMoves(self, validPawnMoves)
                 click = board.window.getMouse()
                 pawnMove = board.getPawnMoveFromMousePosition(self.pawn,
@@ -22,17 +23,19 @@ class Human(IPlayer):
                 if clickOnValidTarget:
                     return pawnMove
             if key == "f" or key == "F" and self.remainingFences() > 0:
-                print(self.remainingFences())
-                validFencePlacings = board.storedValidFencePlacings
-                # board.displayValidPawnMoves(self, validPawnMoves)
+                # validFencePlacings = board.storedValidFencePlacings
+                # board.displayValidFencePlacings(self, validFencePlacings)
+                # TODO = Podemos colocar en la otra pantalla si activo para
+                #  las cercas
                 click = board.window.getMouse()
                 fencePlacing = board.getFencePlacingFromMousePosition(click.x,
                                                                       click.y)
                 clickOnValidTarget = (fencePlacing is not None)
                 if clickOnValidTarget:
                     return fencePlacing
+
             if key == "Escape":
                 return Quit()
 
     def __str__(self):
-        return "[HUMAN] %s (%s)" % (self.name, self.color.name)
+        return "[ALUMNO-UPC] %s (%s)" % (self.name, self.color.name)

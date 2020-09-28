@@ -1,11 +1,15 @@
 from graphics import *
 
-from src.interface.IDrawable import *
-from src.interface.Color import *
-from src.Settings import INTERFACE
+from src.utils.IDrawable import *
+from src.utils.color import *
+from src.settings import INTERFACE
 
 
 class Square(IDrawable):
+    """
+        Clase realizada para realizar lo referente a las coordenadas
+        como cuadrados
+    """
     def __init__(self, board, coord):
         self.board = board
         self.coord = coord

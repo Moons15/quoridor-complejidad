@@ -1,8 +1,8 @@
 from graphics import Rectangle, Point
 
-from src.interface.IDrawable import *
-from src.interface.Color import *
-from src.Settings import INTERFACE
+from src.utils.IDrawable import *
+from src.utils.color import *
+from src.settings import INTERFACE
 
 
 class Fence(IDrawable):

@@ -1,5 +1,7 @@
 class GridCoordinates:
 
+    # TODO = Aquí escribiremos todos las posiciones (coordenadas) en la grilla
+
     def __init__(self, col, row):
         self.col = col
         self.row = row
@@ -18,6 +20,8 @@ class GridCoordinates:
 
     def clone(self):
         return GridCoordinates(self.col, self.row)
+
+    # TODO = Funciones predeterminadas de Python
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):

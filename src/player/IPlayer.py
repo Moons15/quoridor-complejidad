@@ -1,5 +1,5 @@
 from src.action.IAction import *
-from src.action.FencePlacing import *
+from src.action.fence_placing import *
 
 
 class IPlayer:
@@ -17,12 +17,12 @@ class IPlayer:
         pass
 
     def movePawn(self, coord):
-        print("player %s moved his pawn to %s" % (self.name, coord))
+        print("Jugador %s movió su peón al punto %s" % (self.name, coord))
         self.pawn.move(coord)
 
     def placeFence(self, coord, direction):
         print(
-            "player %s place %s" % (self.name, FencePlacing(coord, direction)))
+            "Jugador %s colocó %s" % (self.name, FencePlacing(coord, direction)))
         fence = self.fences.pop()
         fence.place(coord, direction)
 

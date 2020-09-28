@@ -1,11 +1,7 @@
-import random
-import time
-
-from src.player.RandomBot import *
-from src.action.IAction import *
-from src.exception.PlayerPathObstructedException import *
+from src.player.random_bot import *
+from utils.player_exception import *
 from src.player.IBot import *
-from src.Path import *
+from src.path import *
 
 
 class BuilderBot(RandomBot):
