@@ -11,12 +11,12 @@ import random
 
 
 class Game:
-    DefaultColorForPlayer = [
+    ColorJugadorDefault = [
         Color.BLACK,
         Color.BLUE,
     ]
 
-    DefaultNameForPlayer = [
+    NombreJugadorDefault = [
         "1",
         "2",
     ]
@@ -36,9 +36,9 @@ class Game:
 
             # TODO = Seteamos a los jugaodres en caso no tengan nombre
             if players[num_player].name is None:
-                players[num_player].name = Game.DefaultNameForPlayer[num_player]
+                players[num_player].name = Game.NombreJugadorDefault[num_player]
             if players[num_player].color is None:
-                players[num_player].color = Game.DefaultColorForPlayer[
+                players[num_player].color = Game.ColorJugadorDefault[
                     num_player]
 
             # TODO = Inicializamos jugador

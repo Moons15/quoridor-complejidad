@@ -85,7 +85,7 @@ class Path:
     def Dijkstra(board, startCoord, endCoords, moveScore=lambda move, step: 1,
                  ignorePawns=False):
         """
-        3ER ALGORITMO USADO === Dijkstra
+        2DO ALGORITMO USADO === Dijkstra
 
         El algoritmo de Dijkstra, también llamado algoritmo de caminos mínimos,
         es un algoritmo para la determinación del camino más corto, dado un
