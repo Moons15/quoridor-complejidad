@@ -2,7 +2,7 @@ from src.grid_coordinates import *
 from src.utils.square import *
 from src.utils.pawn import *
 from src.path import *
-from utils.player_exception import *
+from src.utils.player_exception import *
 
 
 class Board(IDrawable):

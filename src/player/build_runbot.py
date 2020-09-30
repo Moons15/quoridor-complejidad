@@ -1,5 +1,5 @@
 from src.player.random_bot import *
-from utils.player_exception import *
+from src.utils.player_exception import *
 from src.player.IBot import *
 from src.path import *
 
