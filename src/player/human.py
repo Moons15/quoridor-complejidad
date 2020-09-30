@@ -33,4 +33,4 @@ class Human(IPlayer):
                 clickOnValidTarget = (fencePlacing is not None)
                 if clickOnValidTarget:
                     return fencePlacing
-l
+
