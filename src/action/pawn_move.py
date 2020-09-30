@@ -3,8 +3,8 @@ from src.action.IAction import *
 
 class PawnMove(IAction):
     """
-        Nombramiento de la interfaz PawnMove
-    """
+            Nombramiento de la interfaz PawnMove
+        """
 
     def __init__(self, fromCoord, toCoord, throughCoord=None):
         self.fromCoord = fromCoord
