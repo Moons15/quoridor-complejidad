@@ -15,8 +15,10 @@ def readArguments():
     totalFenceCount = 20
     squareSize = 70
 
-    playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot',
-                     'ElioBot:BuildAndRunBot', 'RichiBot:BuildAndRunBot']
+    # playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot',
+    #                 'ElioBot:BuildAndRunBot', 'RichiBot:BuildAndRunBot']
+
+    playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot']
 
     for playerData in playersConsts:
         playerName, playerType = playerData.split(":")
@@ -35,14 +37,16 @@ def main():
     testText = Text(Point(150, 15), text)
     testText.draw(win)
 
-    text = 'Recuerde: Hoy se enfrentará usted contra el mejor bot creado por nosotros'
+    text = 'Recuerde: Hoy se enfrentará usted contra los mejores bots ' \
+           'creado por nosotros'
     testText = Text(Point(215, 30), text)
     testText.draw(win)
     win.getMouse()
 
     players, rounds, cols, rows, totalFenceCount, squareSize = readArguments()
 
-    # TODO = Inicializamos los componentes(creacion de jugadoresm columnas, tamaño, etc..)
+    # TODO = Inicializamos los componentes(creacion de jugadoresm columnas,
+    #  tamaño, etc..)
     game = Game(players, cols, rows, totalFenceCount, squareSize)
 
     game.start(rounds)

@@ -43,6 +43,28 @@ class Path:
                 minManhattanDistance = manhattanDistance
         return minManhattanDistance
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     def BreadthFirstSearch(board, startCoord, endCoords, ignorePawns=False):
         """
         1ER ALGORITMO USADO === BFS

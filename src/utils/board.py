@@ -295,8 +295,7 @@ class Board(IDrawable):
 
     def isValidPawnMove(self, fromCoord, toCoord, validMoves=None,
                         ignorePawns=False):
-        global TRACE
-        TRACE["Board.isValidPawnMove"] += 1
+
         if validMoves is None:
             validMoves = self.storedValidPawnMovesIgnoringPawns[
                 fromCoord] if ignorePawns else self.storedValidPawnMoves[
@@ -331,8 +330,6 @@ class Board(IDrawable):
             del possiblePawn
 
     def validFencePlacings(self):
-        global TRACE
-        TRACE["Board.validFencePlacings"] += 1
         validPlacings = []
         for col in range(self.cols):
             for row in range(self.rows):
@@ -347,8 +344,7 @@ class Board(IDrawable):
         return validPlacings
 
     def isValidFencePlacing(self, coord, direction):
-        global TRACE
-        TRACE["Board.isValidFencePlacing"] += 1
+
         checkedFence = Fence(self, None)
         checkedFence.coord = coord
         checkedFence.direction = direction
@@ -362,8 +358,7 @@ class Board(IDrawable):
                     return False
             self.fences.append(checkedFence)
             for player in self.game.players:
-                print(player.name, '12903812038120938120839083209')
-                if player.name == 'LutimiBot'  or player.name == 'RichiBot':
+                if player.name == 'LutimiBot' or player.name == 'RichiBot':
                     if Path.BreadthFirstSearch(self, player.pawn.coord,
                                                player.endPositions) is None:
                         self.fences.pop()
@@ -385,8 +380,7 @@ class Board(IDrawable):
                     return False
             self.fences.append(checkedFence)
             for player in self.game.players:
-                print(player.name, '12903812038120938120839083209')
-                if player.name == 'LutimiBot'  or player.name == 'RichiBot':
+                if player.name == 'LutimiBot' or player.name == 'RichiBot':
                     if Path.BreadthFirstSearch(self, player.pawn.coord,
                                                player.endPositions) is None:
                         self.fences.pop()
@@ -485,8 +479,6 @@ class Board(IDrawable):
             self.getSquareAt(move.toCoord).draw()
 
     def isFencePlacingBlocking(self, fencePlacing):
-        global TRACE
-        TRACE["Board.isFencePlacingBlocking"] += 1
         fence = Fence(self, None)
         fence.coord, fence.direction = fencePlacing.coord, fencePlacing.direction
         self.fences.append(fence)
@@ -494,14 +486,12 @@ class Board(IDrawable):
             fencePlacing.coord, fencePlacing.direction)
         isBlocking = False
         for player in self.game.players:
-            # print("Can player %s reach one of his goals with %s? " % (player.name, fencePlacing), end="")
-            print(player.name, '12903812038120938120839083209')
+
             if player.name == 'LutimiBot' or player.name == 'RichiBot':
                 path = Path.BreadthFirstSearch(self, player.pawn.coord,
                                                player.endPositions,
                                                ignorePawns=True)
                 if path is None:
-                    # print("NO")
                     isBlocking = True
                     break
             else:
@@ -509,7 +499,6 @@ class Board(IDrawable):
                                      player.endPositions,
                                      ignorePawns=True)
                 if path is None:
-                    # print("NO")
                     isBlocking = True
                     break
             # print("YES, through %s" % path)
@@ -540,8 +529,6 @@ class Board(IDrawable):
                     self.updateStoredValidPawnMovesAt(coord)
 
     def updateStoredValidActionsAfterPawnMove(self, fromCoord, toCoord):
-        global TRACE
-        TRACE["Board.updateStoredValidActionsAfterPawnMove"] += 1
         self.updateStoredValidPawnMovesAfterPawnMove(fromCoord, toCoord)
 
     def updateStoredValidFencePlacingsAfterFencePlacing(self, coord, direction):
@@ -578,8 +565,6 @@ class Board(IDrawable):
                     GridCoordinates(col, row))
 
     def updateStoredValidActionsAfterFencePlacing(self, coord, direction):
-        global TRACE
-        TRACE["Board.updateStoredValidActionsAfterFencePlacing"] += 1
         self.updateStoredValidFencePlacingsAfterFencePlacing(coord, direction)
         self.updateStoredValidPawnMovesAfterFencePlacing(coord, direction)
         self.updateStoredValidPawnMovesIgnoringPawnsAfterFencePlacing(coord,
@@ -621,11 +606,8 @@ class Board(IDrawable):
         print("'" + "-+" * (self.cols - 1) + "-'")
 
     def getFencePlacingImpactOnPaths(self, fencePlacing: FencePlacing):
-        global TRACE
-        TRACE["Board.getFencePlacingImpactOnPaths"] += 1
         stateBefore = {}
         for player in self.game.players:
-            print(player.name, '12903812038120938120839083209')
             if player.name == 'LutimiBot' or player.name == 'RichiBot':
 
                 path = Path.BreadthFirstSearch(self, player.pawn.coord,
@@ -649,8 +631,6 @@ class Board(IDrawable):
             fencePlacing.coord, fencePlacing.direction)
         impact = {}
         for player in self.game.players:
-            print(player.name, '12903812038120938120839083209')
-
             if player.name == 'LutimiBot' or player.name == 'RichiBot':
 
                 path = Path.BreadthFirstSearch(self, player.pawn.coord,

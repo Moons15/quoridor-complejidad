@@ -112,7 +112,7 @@ class Game:
             print("- %s: %d" % (str(player), player.score))
             if player.score > bestPlayer.score:
                 bestPlayer = player
-        print("Jugador %s won with %d victories!" % (
+        print("Jugador %s gana con %d victorias!" % (
             bestPlayer.name, bestPlayer.score))
 
     def end(self):
