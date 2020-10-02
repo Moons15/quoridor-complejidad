@@ -14,6 +14,7 @@ class Color(Enum):
     WHITE = "#ffffff"
     BLACK = "#000000"
     SQUARE = "#eeeeee"
+    GREEN = "#008000"
 
     def FromRGB(r, g, b):
         return "#%02x%02x%02x" % (r, g, b)

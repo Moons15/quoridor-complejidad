@@ -362,10 +362,17 @@ class Board(IDrawable):
                     return False
             self.fences.append(checkedFence)
             for player in self.game.players:
-                if Path.BreadthFirstSearch(self, player.pawn.coord,
-                                           player.endPositions) is None:
-                    self.fences.pop()
-                    return False
+                print(player.name, '12903812038120938120839083209')
+                if player.name == 'LutimiBot'  or player.name == 'RichiBot':
+                    if Path.BreadthFirstSearch(self, player.pawn.coord,
+                                               player.endPositions) is None:
+                        self.fences.pop()
+                        return False
+                else:
+                    if Path.Dijkstra(self, player.pawn.coord,
+                                     player.endPositions) is None:
+                        self.fences.pop()
+                        return False
             self.fences.pop()
             return True
         if not self.isAtLeftEdge(coord) and not self.isAtBottomEdge(
@@ -378,10 +385,17 @@ class Board(IDrawable):
                     return False
             self.fences.append(checkedFence)
             for player in self.game.players:
-                if Path.BreadthFirstSearch(self, player.pawn.coord,
-                                           player.endPositions) is None:
-                    self.fences.pop()
-                    return False
+                print(player.name, '12903812038120938120839083209')
+                if player.name == 'LutimiBot'  or player.name == 'RichiBot':
+                    if Path.BreadthFirstSearch(self, player.pawn.coord,
+                                               player.endPositions) is None:
+                        self.fences.pop()
+                        return False
+                else:
+                    if Path.Dijkstra(self, player.pawn.coord,
+                                     player.endPositions) is None:
+                        self.fences.pop()
+                        return False
             self.fences.pop()
             return True
         return False
@@ -481,13 +495,23 @@ class Board(IDrawable):
         isBlocking = False
         for player in self.game.players:
             # print("Can player %s reach one of his goals with %s? " % (player.name, fencePlacing), end="")
-            path = Path.BreadthFirstSearch(self, player.pawn.coord,
-                                           player.endPositions,
-                                           ignorePawns=True)
-            if path is None:
-                # print("NO")
-                isBlocking = True
-                break
+            print(player.name, '12903812038120938120839083209')
+            if player.name == 'LutimiBot' or player.name == 'RichiBot':
+                path = Path.BreadthFirstSearch(self, player.pawn.coord,
+                                               player.endPositions,
+                                               ignorePawns=True)
+                if path is None:
+                    # print("NO")
+                    isBlocking = True
+                    break
+            else:
+                path = Path.Dijkstra(self, player.pawn.coord,
+                                     player.endPositions,
+                                     ignorePawns=True)
+                if path is None:
+                    # print("NO")
+                    isBlocking = True
+                    break
             # print("YES, through %s" % path)
         self.fences.pop()
         self.updateStoredValidPawnMovesIgnoringPawnsAfterFencePlacing(
@@ -601,12 +625,22 @@ class Board(IDrawable):
         TRACE["Board.getFencePlacingImpactOnPaths"] += 1
         stateBefore = {}
         for player in self.game.players:
-            path = Path.BreadthFirstSearch(self, player.pawn.coord,
-                                           player.endPositions,
-                                           ignorePawns=True)
-            if path is None:
-                print("Player %s is already blocked!" % (player.name))
-                return None
+            print(player.name, '12903812038120938120839083209')
+            if player.name == 'LutimiBot' or player.name == 'RichiBot':
+
+                path = Path.BreadthFirstSearch(self, player.pawn.coord,
+                                               player.endPositions,
+                                               ignorePawns=True)
+                if path is None:
+                    print("Jugador %s ya esta bloqueado!" % (player.name))
+                    return None
+            else:
+                path = Path.Dijkstra(self, player.pawn.coord,
+                                     player.endPositions,
+                                     ignorePawns=True)
+                if path is None:
+                    print("Jugador %s ya esta bloqueado!" % (player.name))
+                    return None
             stateBefore[player.name] = len(path.moves)
         fence = Fence(self, None)
         fence.coord, fence.direction = fencePlacing.coord, fencePlacing.direction
@@ -615,9 +649,17 @@ class Board(IDrawable):
             fencePlacing.coord, fencePlacing.direction)
         impact = {}
         for player in self.game.players:
-            path = Path.BreadthFirstSearch(self, player.pawn.coord,
-                                           player.endPositions,
-                                           ignorePawns=True)
+            print(player.name, '12903812038120938120839083209')
+
+            if player.name == 'LutimiBot' or player.name == 'RichiBot':
+
+                path = Path.BreadthFirstSearch(self, player.pawn.coord,
+                                               player.endPositions,
+                                               ignorePawns=True)
+            else:
+                path = Path.Dijkstra(self, player.pawn.coord,
+                                     player.endPositions,
+                                     ignorePawns=True)
             if path is None:
                 # print("Fence placing will block player %s" % (player.name))
                 self.fences.pop()

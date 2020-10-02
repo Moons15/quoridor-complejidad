@@ -14,11 +14,15 @@ class Game:
     DefaultColorForPlayer = [
         Color.BLACK,
         Color.BLUE,
+        Color.GREEN,
+        Color.TURQUOISE
     ]
 
     DefaultNameForPlayer = [
         "1",
         "2",
+        "3",
+        "4"
     ]
 
     def __init__(self, players, cols=9, rows=9, totalFenceCount=20,
@@ -90,7 +94,7 @@ class Game:
                     #  objetivos del jugador
                     if player.hasWon():
                         finished = True
-                        print("Jugador %s ganó" % player.name)
+                        print("Jugador %s gana" % player.name)
                         player.score += 1
                 elif isinstance(action, FencePlacing):
                     player.placeFence(action.coord, action.direction)

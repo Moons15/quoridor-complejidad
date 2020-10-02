@@ -15,7 +15,8 @@ def readArguments():
     totalFenceCount = 20
     squareSize = 70
 
-    playersConsts = ['Alumno-UPC:Human', 'Bot-IA:BuildAndRunBot']
+    playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot',
+                     'ElioBot:BuildAndRunBot', 'RichiBot:BuildAndRunBot']
 
     for playerData in playersConsts:
         playerName, playerType = playerData.split(":")

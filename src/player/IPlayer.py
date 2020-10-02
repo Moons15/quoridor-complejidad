@@ -17,12 +17,13 @@ class IPlayer:
         pass
 
     def movePawn(self, coord):
-        print("Jugador %s movió su peón al punto %s" % (self.name, coord))
+        print("Jugador {} movio su peon al punto {}".format(self.name,
+                                                            coord))
         self.pawn.move(coord)
 
     def placeFence(self, coord, direction):
-        print(
-            "Jugador %s colocó %s" % (self.name, FencePlacing(coord, direction)))
+        print("Jugador {} coloco {}".format(self.name,
+                                            FencePlacing(coord, direction)))
         fence = self.fences.pop()
         fence.place(coord, direction)
 

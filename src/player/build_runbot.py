@@ -47,6 +47,7 @@ class BuilderBot(RandomBot):
 
 class RunnerBot(IBot):
     def moveAlongTheShortestPath(self, board) -> IAction:
+        print('Solo BFS AQUI ')
         path = Path.BreadthFirstSearch(board, self.pawn.coord,
                                        self.endPositions, ignorePawns=False)
         if path is None:

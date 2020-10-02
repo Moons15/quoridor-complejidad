@@ -57,6 +57,8 @@ class Path:
         """
         global TRACE
         TRACE["Path.BreadthFirstSearch"] += 1
+
+        print("Esta utilizando BFS en este movimiento")
         root = PawnMove(None, startCoord)
 
         previousMoves = {startCoord: root}
@@ -98,6 +100,8 @@ class Path:
         """
         global TRACE
         TRACE["Path.Dijkstra"] += 1
+        print("Esta utilizando Dijkstra en este movimiento")
+
         root = PawnMove(None, startCoord)
 
         previousMoves = {startCoord: (0, root)}
