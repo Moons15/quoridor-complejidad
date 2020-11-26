@@ -1,6 +1,6 @@
 class GridCoordinates:
 
-    # TODO = Aquí escribiremos todos las posiciones (coordenadas) en la grilla
+    # TODO = Coordenadas de la grilla con barreras
 
     def __init__(self, col, row):
         self.col = col
