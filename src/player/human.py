@@ -9,7 +9,7 @@ class Human(IPlayer):
         if not INTERFACE:
             raise Exception("")
         while True:
-            # TODO = CAPTURAMOS LA TECLA
+            # TODO = CAPTURA DE TECLA
             key = board.window.getKey()
             if key == ' ' or key == 'space':
                 validPawnMoves = board.storedValidPawnMoves[self.pawn.coord]
@@ -23,8 +23,6 @@ class Human(IPlayer):
                 if clickOnValidTarget:
                     return pawnMove
             if key == "f" or key == "F" and self.remainingFences() > 0:
-                # validFencePlacings = board.storedValidFencePlacings
-                # board.displayValidFencePlacings(self, validFencePlacings)
                 # TODO = Podemos colocar en la otra pantalla si activo para
                 #  las cercas
                 click = board.window.getMouse()
