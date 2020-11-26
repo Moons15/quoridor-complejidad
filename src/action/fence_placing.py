@@ -1,7 +1,6 @@
 from src.action.IAction import *
 from src.utils.fence import *
 
-
 class FencePlacing(IAction):
     """
     Funciones predeterminadas como interfaces de las clases equivalentes
