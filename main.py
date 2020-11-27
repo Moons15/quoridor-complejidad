@@ -21,11 +21,17 @@ def readArguments():
     playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot']
 
     for playerData in playersConsts:
+        
         playerName, playerType = playerData.split(":")
+        
         if playerType not in globals():
+            
             print("Jugador desconocido")
+            
             sys.exit(PARAMETERS_ERROR_RETURN_CODE)
+            
         players.append(globals()[playerType](playerName))
+        
     return players, rounds, cols, rows, totalFenceCount, squareSize
 
 
@@ -45,7 +51,7 @@ def main():
 
     players, rounds, cols, rows, totalFenceCount, squareSize = readArguments()
 
-    # TODO = Inicializamos los componentes(creacion de jugadoresm columnas,
+    # TODO = Inicializamos los componentes(creacion de jugadoresm columnas, apra poder implementar los algoritmos
     #  tamaño, etc..)
     game = Game(players, cols, rows, totalFenceCount, squareSize)
 
@@ -55,6 +61,7 @@ def main():
 
     global TRACE
     for i in TRACE:
+        
         print("%s: %s" % (i, TRACE[i]))
 
 
