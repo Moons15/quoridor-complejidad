@@ -4,7 +4,7 @@ from src.utils.IDrawable import *
 from src.utils.color import *
 from src.settings import INTERFACE
 
-
+#Implementación de clase barrera
 class Fence(IDrawable):
     class DIRECTION(Enum):
         HORIZONTAL = 0
