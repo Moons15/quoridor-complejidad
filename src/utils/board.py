@@ -273,16 +273,15 @@ class Board(IDrawable):
             if ignorePawns or not self.hasPawn(bottomCoord):
                 validMoves.append(PawnMove(coord, bottomCoord))
             else:
-                if not self.isAtBottomEdge(
-                        bottomCoord) and not self.hasFenceAtBottom(
-                    bottomCoord) and not self.hasPawn(bottomCoord.bottom()):
+                if not self.isAtBottomEdge(bottomCoord) and \
+                        not self.hasFenceAtBottom(bottomCoord) and \
+                        not self.hasPawn(bottomCoord.bottom()):
                     validMoves.append(
                         PawnMove(coord, bottomCoord.bottom(), bottomCoord))
                 else:
-                    if not self.isAtLeftEdge(
-                            bottomCoord) and not self.hasFenceAtLeft(
-                        bottomCoord) and not self.hasPawn(
-                        bottomCoord.left()):
+                    if not self.isAtLeftEdge(bottomCoord) and \
+                            not self.hasFenceAtLeft(bottomCoord) and \
+                            not self.hasPawn(bottomCoord.left()):
                         validMoves.append(
                             PawnMove(coord, bottomCoord.left(), bottomCoord))
                     if not self.isAtRightEdge(

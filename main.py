@@ -15,23 +15,22 @@ def readArguments():
     totalFenceCount = 20
     squareSize = 70
 
-    # playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot',
-    #                 'ElioBot:BuildAndRunBot', 'RichiBot:BuildAndRunBot']
+    playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot',
+                    'ElioBot:BuildAndRunBot', 'RichiBot:BuildAndRunBot']
 
-    playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot']
+    # playersConsts = ['Alumno-UPC:Human', 'LutimiBot:BuildAndRunBot']
 
     for playerData in playersConsts:
-        
+
         playerName, playerType = playerData.split(":")
-        
+
         if playerType not in globals():
-            
             print("Jugador desconocido")
-            
+
             sys.exit(PARAMETERS_ERROR_RETURN_CODE)
-            
+
         players.append(globals()[playerType](playerName))
-        
+
     return players, rounds, cols, rows, totalFenceCount, squareSize
 
 
@@ -61,7 +60,6 @@ def main():
 
     global TRACE
     for i in TRACE:
-        
         print("%s: %s" % (i, TRACE[i]))
 
 

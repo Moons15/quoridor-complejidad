@@ -43,31 +43,11 @@ class Path:
                 minManhattanDistance = manhattanDistance
         return minManhattanDistance
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     def BreadthFirstSearch(board, startCoord, endCoords, ignorePawns=False):
         """
         1ER ALGORITMO USADO === BFS
+
+        Hecho por: Elio
 
         Es un algoritmo de búsqueda no informada utilizado para recorrer o buscar
         elementos en un grafo (usado frecuentemente sobre árboles).
@@ -110,6 +90,8 @@ class Path:
                  ignorePawns=False):
         """
         3ER ALGORITMO USADO === Dijkstra
+
+        Hecho por Richard
 
         El algoritmo de Dijkstra, también llamado algoritmo de caminos mínimos,
         es un algoritmo para la determinación del camino más corto, dado un
@@ -160,6 +142,8 @@ class Path:
     def DepthFirstSearch(self, visited, graph, node):
         """
         3ER ALGORITMO USADO === DFS
+
+        Hecho por Luis Ticona
 
         Una Búsqueda en profundidad (Depth First Search) es un algoritmo de
         búsqueda no informada utilizado para recorrer todos los nodos de un

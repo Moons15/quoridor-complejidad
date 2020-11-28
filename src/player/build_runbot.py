@@ -53,6 +53,7 @@ class RunnerBot(IBot):
         if path is None:
             path = Path.BreadthFirstSearch(board, self.pawn.coord,
                                            self.endPositions, ignorePawns=True)
+            print(path.firstMove())
             firstMove = path.firstMove()
             if not board.isValidPawnMove(firstMove.fromCoord, firstMove.toCoord,
                                          ignorePawns=False):
